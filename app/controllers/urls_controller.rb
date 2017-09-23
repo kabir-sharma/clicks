@@ -1,6 +1,6 @@
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :edit, :update, :destroy]
-
+  before_action :increment_count, only: [:show]
   # GET /urls
   # GET /urls.json
   def index
@@ -10,8 +10,6 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
-    @url.increment!(:count)
-    redirect_to @url.site
   end
 
   # GET /urls/new
@@ -72,5 +70,9 @@ class UrlsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def url_params
       params.require(:url).permit(:site, :desc)
+    end
+
+    def increment_count
+      @url.increment!(:count)
     end
 end
