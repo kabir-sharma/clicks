@@ -10,7 +10,7 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
-    @url.clicks.create!(ip_addr: request.remote_ip)
+    @url.increment!(:count)
     redirect_to @url.site
   end
 
