@@ -4,7 +4,7 @@ class UrlsController < ApplicationController
   # GET /urls
   # GET /urls.json
   def index
-    @urls = Url.includes(:clicks).order("desc asc")
+    @urls = Url.order("desc asc")
   end
 
   # GET /urls/1

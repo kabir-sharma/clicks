@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923180339) do
+ActiveRecord::Schema.define(version: 20170923181646) do
 
   create_table "clicks", force: :cascade do |t|
     t.string "ip_addr"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170923180339) do
     t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count", default: 0
   end
 
 end
